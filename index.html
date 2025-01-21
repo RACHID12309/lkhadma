@@ -1,1 +1,25 @@
-# lkhadma
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Immediate Redirect -->
+    <script>
+        // Replace THIS NUMBER with your WhatsApp (include country code without +)
+        const whatsappNumber = "212649566468"; 
+        
+        // Replace THIS MESSAGE with your pre-filled text
+        const message = "مرحبا، أريد الاستفادة من العرض"; 
+        
+        window.location.href = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+    </script>
+
+    <!-- Backup Redirect (works if JavaScript is blocked) -->
+    <meta http-equiv="refresh" content="0;url=https://wa.me/212612345678?text=مرحبا،%20أريد%20الاستفادة%20من%20العرض">
+</head>
+<body>
+    <!-- Fallback Content -->
+    <div style="text-align: center; padding: 50px;">
+        <h2>جاري التحويل إلى واتساب...</h2>
+        <p>إذا لم يتم التحويل تلقائيًا، <a href="https://wa.me/212612345678">انقر هنا</a></p>
+    </div>
+</body>
+</html>

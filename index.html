@@ -5,16 +5,56 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>فرصة عمل للنساء من المنزل</title>
     <style>
-        body { text-align: center; font-family: Arial, sans-serif; padding: 20px; background-color: #f9f9f9; }
-        .container { max-width: 400px; margin: auto; background: white; padding: 20px; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
-        .btn { display: inline-block; padding: 10px 20px; background-color: #25D366; color: white; text-decoration: none; border-radius: 5px; font-size: 18px; margin-top: 10px; }
+        body { 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            height: 100vh; 
+            background-color: #f9f9f9; 
+            margin: 0; 
+            font-family: Arial, sans-serif; 
+            text-align: center; 
+        }
+        .container { 
+            max-width: 400px; 
+            background: white; 
+            padding: 20px; 
+            border-radius: 10px; 
+            box-shadow: 0 0 10px rgba(0,0,0,0.1); 
+        }
+        .btn { 
+            display: inline-flex; 
+            align-items: center; 
+            gap: 8px; 
+            padding: 12px 20px; 
+            background-color: #25D366; 
+            color: white; 
+            text-decoration: none; 
+            border-radius: 5px; 
+            font-size: 18px; 
+            font-weight: bold;
+            transition: transform 0.2s ease-in-out;
+            animation: pulse 1.5s infinite;
+        }
+        .btn img { 
+            width: 24px; 
+            height: 24px; 
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>💼 فرصة عمل للنساء من المنزل</h1>
         <p>هل ترغبين في تحقيق دخل إضافي وأنتِ في منزلك؟ انضمي إلينا الآن!</p>
-        <a class="btn" href="https://wa.me/212XXXXXXXXX?text=سلام، بغيت نستفسر على فرصة العمل!">تواصلي معنا على واتساب</a>
+        <a class="btn" href="https://wa.me/212XXXXXXXXX?text=سلام، بغيت نستفسر على فرصة العمل!">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+            تواصلي معنا على واتساب
+        </a>
     </div>
 </body>
 </html>

@@ -2,10 +2,9 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>دليل تأسيس الشركات البريطانية للمستثمر السعودي</title>
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         :root {
             --primary: #132B43;
@@ -38,6 +37,7 @@
             padding: 0;
             box-sizing: border-box;
             font-family: 'Tajawal', sans-serif;
+            -webkit-tap-highlight-color: transparent;
         }
         
         body {
@@ -46,6 +46,7 @@
             line-height: 1.6;
             min-height: 100vh;
             overflow-x: hidden;
+            font-size: 16px;
         }
         
         a {
@@ -60,33 +61,35 @@
         }
         
         section {
-            padding: 5rem 0;
+            padding: 3rem 0;
             position: relative;
         }
         
         .container {
+            width: 100%;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 1.5rem;
+            padding: 0 1rem;
             position: relative;
             z-index: 2;
         }
         
         .section-heading {
             text-align: center;
-            margin-bottom: 4rem;
+            margin-bottom: 2.5rem;
             position: relative;
         }
         
         .section-heading h2 {
-            font-size: 2.5rem;
+            font-size: 1.8rem;
             font-weight: 700;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
             color: var(--primary);
+            line-height: 1.3;
         }
         
         .section-heading p {
-            font-size: 1.25rem;
+            font-size: 1rem;
             color: var(--gray-700);
             max-width: 800px;
             margin: 0 auto;
@@ -95,10 +98,10 @@
         .section-heading::after {
             content: "";
             position: absolute;
-            width: 80px;
-            height: 4px;
+            width: 60px;
+            height: 3px;
             background: var(--secondary);
-            bottom: -15px;
+            bottom: -10px;
             left: 50%;
             transform: translateX(-50%);
             border-radius: 2px;
@@ -112,7 +115,7 @@
             white-space: nowrap;
             vertical-align: middle;
             user-select: none;
-            padding: 0.75rem 1.5rem;
+            padding: 0.75rem 1.25rem;
             font-size: 1rem;
             line-height: 1.5;
             border-radius: 8px;
@@ -122,6 +125,9 @@
             z-index: 1;
             border: none;
             cursor: pointer;
+            width: 100%;
+            max-width: 350px;
+            min-height: 50px;
         }
         
         .btn::before {
@@ -136,8 +142,12 @@
             z-index: -1;
         }
         
-        .btn:hover::before {
+        .btn:hover::before, .btn:focus::before, .btn:active::before {
             left: 0;
+        }
+        
+        .btn:active {
+            transform: scale(0.98);
         }
         
         .btn-primary {
@@ -146,15 +156,14 @@
             box-shadow: 0 4px 14px rgba(0, 132, 61, 0.4);
         }
         
-        .btn-primary:hover {
+        .btn-primary:hover, .btn-primary:focus, .btn-primary:active {
             background-color: var(--secondary-dark);
             box-shadow: 0 6px 20px rgba(0, 132, 61, 0.5);
-            transform: translateY(-2px);
         }
         
         .btn-large {
-            padding: 1rem 2.5rem;
-            font-size: 1.25rem;
+            padding: 1rem 1.5rem;
+            font-size: 1.1rem;
             border-radius: 10px;
         }
         
@@ -164,7 +173,6 @@
         
         .btn-center {
             display: block;
-            max-width: 300px;
             margin: 0 auto;
         }
         
@@ -178,7 +186,7 @@
                 box-shadow: 0 4px 14px rgba(0, 132, 61, 0.4);
             }
             50% {
-                transform: scale(1.05);
+                transform: scale(1.02);
                 box-shadow: 0 6px 20px rgba(0, 132, 61, 0.6);
             }
             100% {
@@ -187,11 +195,11 @@
             }
         }
         
-        /* Enhanced Header */
+        /* Mobile-Optimized Header */
         header {
-            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
             color: white;
-            padding: 1rem 0;
+            padding: 0.75rem 0;
             position: fixed;
             width: 100%;
             top: 0;
@@ -201,7 +209,7 @@
         }
         
         header.scrolled {
-            padding: 0.7rem 0;
+            padding: 0.5rem 0;
             background: rgba(19, 43, 67, 0.95);
             backdrop-filter: blur(10px);
         }
@@ -213,57 +221,127 @@
         }
         
         .logo {
-            font-size: 1.5rem;
+            font-size: 1.1rem;
             font-weight: 700;
+            z-index: 1001;
+        }
+        
+        /* Mobile Navigation Styles */
+        .mobile-nav-toggle {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 21px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            z-index: 1001;
+        }
+        
+        .mobile-nav-toggle span {
+            display: block;
+            width: 100%;
+            height: 3px;
+            background-color: white;
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+        
+        .mobile-nav-toggle.open span:nth-child(1) {
+            transform: translateY(9px) rotate(45deg);
+        }
+        
+        .mobile-nav-toggle.open span:nth-child(2) {
+            opacity: 0;
+        }
+        
+        .mobile-nav-toggle.open span:nth-child(3) {
+            transform: translateY(-9px) rotate(-45deg);
         }
         
         .nav-links {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 80%;
+            height: 100vh;
+            background: var(--primary-dark);
             display: flex;
-            gap: 1.5rem;
+            flex-direction: column;
+            padding: 5rem 2rem 2rem;
+            transition: all 0.4s ease;
+            box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            overflow-y: auto;
+        }
+        
+        .nav-links.open {
+            right: 0;
         }
         
         .nav-links a {
             color: white;
             opacity: 0.8;
             font-weight: 500;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 1.1rem;
+            display: block;
+        }
+        
+        .nav-links a:last-child {
+            border-bottom: none;
         }
         
         .nav-links a:hover {
             opacity: 1;
+            padding-right: 10px;
         }
         
-        .header-cta {
-            padding: 0.5rem 1rem;
-            background-color: var(--accent);
-            color: var(--primary-dark);
-            border-radius: 6px;
-            font-weight: 600;
+        .nav-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+            opacity: 0;
+            visibility: hidden;
             transition: all 0.3s ease;
         }
         
-        .header-cta:hover {
-            background-color: var(--accent-light);
-            transform: translateY(-2px);
+        .nav-overlay.open {
+            opacity: 1;
+            visibility: visible;
         }
         
-        /* Enhanced Countdown */
+        .header-cta {
+            display: none;
+        }
+        
+        /* Mobile Optimized Countdown */
         .countdown {
             background: linear-gradient(135deg, var(--accent-dark), var(--accent));
             color: var(--primary-dark);
-            padding: 0.75rem 0;
+            padding: 0.5rem 0;
             text-align: center;
             font-weight: 600;
             position: fixed;
             width: 100%;
-            top: 60px;
+            top: 52px; /* Adjusted for mobile header height */
             z-index: 999;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            font-size: 0.9rem;
         }
         
         .countdown-container {
             display: flex;
             justify-content: center;
             align-items: center;
+            flex-wrap: wrap;
             gap: 0.5rem;
         }
         
@@ -274,36 +352,39 @@
         #countdown-timer {
             display: inline-flex;
             gap: 0.25rem;
-            font-size: 1.25rem;
+            font-size: 1.1rem;
             font-weight: 700;
             color: var(--primary-dark);
         }
         
         .countdown-unit {
             background: rgba(255, 255, 255, 0.3);
-            padding: 0.25rem 0.5rem;
+            padding: 0.2rem 0.4rem;
             border-radius: 4px;
-            min-width: 2.5ch;
+            min-width: 2.2ch;
             text-align: center;
         }
         
-        /* Enhanced Hero Section */
+        /* Mobile Optimized Hero Section */
         .hero {
-            padding: 12rem 0 8rem;
+            padding: 8rem 0 4rem;
             background: linear-gradient(rgba(19, 43, 67, 0.9), rgba(19, 43, 67, 0.85)), 
                         url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80') center/cover;
             position: relative;
             color: white;
             overflow: hidden;
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
         }
         
         .hero::before {
             content: "";
             position: absolute;
             width: 150%;
-            height: 100px;
+            height: 70px;
             background: var(--light);
-            bottom: -50px;
+            bottom: -35px;
             left: -25%;
             border-radius: 50%;
         }
@@ -314,104 +395,34 @@
             text-align: center;
             position: relative;
             z-index: 2;
+            padding: 0 1rem;
         }
         
         .hero h1 {
-            font-size: 3.5rem;
+            font-size: 1.8rem;
             font-weight: 800;
-            line-height: 1.2;
-            margin-bottom: 1.5rem;
+            line-height: 1.3;
+            margin-bottom: 1.2rem;
             letter-spacing: -0.5px;
             text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
         }
         
         .hero p {
-            font-size: 1.7rem;
-            margin-bottom: 3rem;
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
             opacity: 0.9;
             font-weight: 400;
             text-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
         }
         
-        /* Hero Video Section */
-        .hero-video-container {
-            max-width: 700px;
-            margin: 0 auto 4rem;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
-            border: 3px solid var(--accent);
-        }
-        
-        .hero-video {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-        
-        /* Problem-Solution Section */
-        .problem-solution {
-            padding: 3rem 0;
-            background-color: white;
-            text-align: center;
-        }
-        
-        .problem-solution h3 {
-            font-size: 2rem;
-            color: var(--primary);
-            margin-bottom: 1.5rem;
-        }
-        
-        .problem-solution p {
-            font-size: 1.2rem;
-            color: var(--gray-700);
-            max-width: 800px;
-            margin: 0 auto 2rem;
-        }
-        
-        .benefits-list {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 2rem;
-            margin: 0 auto;
-            max-width: 900px;
-        }
-        
-        .benefit-item {
-            flex: 0 0 calc(33.333% - 2rem);
-            background: var(--light);
-            padding: 1.5rem;
-            border-radius: 12px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            transition: all 0.3s ease;
-        }
-        
-        .benefit-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-        }
-        
-        .benefit-icon {
-            font-size: 2rem;
-            color: var(--secondary);
-            margin-bottom: 1rem;
-        }
-        
-        .benefit-title {
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-            color: var(--primary);
-        }
-        
-        /* Enhanced Limited Offer */
+        /* Enhanced Limited Offer for Mobile */
         .limited-offer {
             background: linear-gradient(135deg, var(--accent-light), var(--accent));
             color: var(--primary-dark);
-            padding: 1.25rem 0;
+            padding: 1rem 0;
             text-align: center;
             font-weight: 700;
-            font-size: 1.25rem;
+            font-size: 1rem;
             animation: pulse-bg 2s infinite;
             position: relative;
         }
@@ -431,45 +442,19 @@
         .limited-offer::before,
         .limited-offer::after {
             content: "🔥";
-            margin: 0 1rem;
+            margin: 0 0.5rem;
             animation: bounce 1s infinite alternate;
+            display: inline-block;
         }
         
         @keyframes bounce {
             from { transform: translateY(0); }
-            to { transform: translateY(-5px); }
+            to { transform: translateY(-3px); }
         }
         
-        /* Social Proof Bar */
-        .social-proof-bar {
-            background: var(--primary-dark);
-            color: white;
-            text-align: center;
-            padding: 1rem 0;
-        }
-        
-        .social-proof-logos {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 2rem;
-            flex-wrap: wrap;
-            margin-top: 1rem;
-        }
-        
-        .social-proof-logo {
-            height: 40px;
-            opacity: 0.8;
-            transition: all 0.3s ease;
-        }
-        
-        .social-proof-logo:hover {
-            opacity: 1;
-        }
-        
-        /* Enhanced Features Section */
+        /* Mobile Optimized Features Section */
         .features {
-            padding: 6rem 0;
+            padding: 4rem 0;
             background-color: white;
             position: relative;
         }
@@ -477,10 +462,10 @@
         .features::after {
             content: "";
             position: absolute;
-            height: 100px;
+            height: 70px;
             width: 150%;
             background: var(--light);
-            bottom: -50px;
+            bottom: -35px;
             left: -25%;
             border-radius: 50%;
             z-index: 1;
@@ -488,14 +473,14 @@
         
         .feature-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
         }
         
         .feature-card {
             background: white;
             border-radius: 12px;
-            padding: 2rem;
+            padding: 1.5rem;
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
             transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
             display: flex;
@@ -506,15 +491,15 @@
             height: 100%;
         }
         
-        .feature-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        .feature-card:active {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
             border-color: var(--secondary-light);
         }
         
         .feature-icon {
-            font-size: 3.5rem;
-            margin-bottom: 1.5rem;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
             background: linear-gradient(135deg, var(--secondary), var(--secondary-light));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -522,59 +507,72 @@
         }
         
         .feature-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
+            font-size: 1.3rem;
+            margin-bottom: 0.75rem;
             font-weight: 600;
             color: var(--primary);
         }
         
         .feature-card p {
             color: var(--gray-700);
-            font-size: 1.1rem;
-            line-height: 1.6;
+            font-size: 1rem;
+            line-height: 1.5;
         }
         
-        /* Enhanced Testimonials */
+        /* Mobile Optimized Testimonials */
         .social-proof {
-            padding: 8rem 0 6rem;
+            padding: 4rem 0;
             background-color: var(--light);
             position: relative;
         }
         
-        .testimonial-slider {
-            max-width: 900px;
-            margin: 0 auto;
-            position: relative;
+        .testimonials-slider {
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none; /* For Firefox */
+            -ms-overflow-style: none; /* For IE and Edge */
+            padding: 1rem 0 1.5rem;
+            margin: 0 -1rem;
         }
         
-        .testimonials-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 1rem;
+        .testimonials-slider::-webkit-scrollbar {
+            display: none; /* For Chrome, Safari and Opera */
+        }
+        
+        .testimonials-track {
+            display: flex;
+            padding: 0.5rem 1rem;
         }
         
         .testimonial {
             background: white;
             border-radius: 12px;
-            padding: 2.5rem;
+            padding: 1.5rem;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
             position: relative;
             transition: all 0.3s ease;
             border: 1px solid var(--gray-200);
+            min-width: 280px;
+            width: 90%;
+            margin-right: 1rem;
+            flex: 0 0 auto;
         }
         
-        .testimonial:hover {
+        .testimonial:last-child {
+            margin-right: 0;
+        }
+        
+        .testimonial:active {
             transform: translateY(-5px);
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
         }
         
         .testimonial::before {
             content: """;
-            font-size: 5rem;
+            font-size: 3rem;
             position: absolute;
-            top: 10px;
-            right: 20px;
+            top: 5px;
+            right: 15px;
             color: var(--gray-200);
             font-family: serif;
             line-height: 1;
@@ -583,22 +581,22 @@
         .testimonial p {
             position: relative;
             z-index: 1;
-            font-size: 1.1rem;
-            line-height: 1.7;
+            font-size: 0.95rem;
+            line-height: 1.6;
             color: var(--gray-800);
         }
         
         .testimonial-author {
-            margin-top: 1.5rem;
+            margin-top: 1.2rem;
             display: flex;
             align-items: center;
         }
         
         .author-image {
-            width: 50px;
-            height: 50px;
+            width: 45px;
+            height: 45px;
             border-radius: 50%;
-            margin-left: 15px;
+            margin-left: 12px;
             object-fit: cover;
             border: 2px solid var(--secondary);
         }
@@ -610,105 +608,48 @@
         .author-name {
             font-weight: 700;
             color: var(--primary);
-            font-size: 1.1rem;
+            font-size: 1rem;
         }
         
         .author-title {
             color: var(--gray-600);
-            font-size: 0.9rem;
+            font-size: 0.85rem;
         }
         
-        /* Customer Counter */
-        .customer-counter {
-            background: var(--primary);
-            color: white;
-            text-align: center;
-            padding: 3rem 0;
-        }
-        
-        .counter-number {
-            font-size: 3.5rem;
-            font-weight: 800;
-            margin-bottom: 0.5rem;
-            color: var(--accent);
-        }
-        
-        .counter-text {
-            font-size: 1.2rem;
-            opacity: 0.9;
-        }
-        
-        /* "What's Inside" Section */
-        .whats-inside {
-            padding: 6rem 0;
-            background-color: white;
-        }
-        
-        .content-preview {
-            max-width: 800px;
-            margin: 0 auto;
-            background: var(--light);
-            border-radius: 16px;
-            padding: 3rem;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
-        }
-        
-        .content-chapters {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-        
-        .chapter-item {
+        /* Scroll indicators for testimonial slider */
+        .slider-indicators {
             display: flex;
-            align-items: flex-start;
-            margin-bottom: 1.5rem;
-        }
-        
-        .chapter-number {
-            width: 30px;
-            height: 30px;
-            background: var(--secondary);
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
             justify-content: center;
-            font-weight: 700;
-            margin-left: 1rem;
-            flex-shrink: 0;
+            gap: 0.5rem;
+            margin-top: 1rem;
         }
         
-        .chapter-content {
-            flex: 1;
+        .slider-indicator {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: var(--gray-300);
+            transition: all 0.3s ease;
         }
         
-        .chapter-title {
-            font-weight: 700;
-            color: var(--primary);
-            margin-bottom: 0.5rem;
-            font-size: 1.1rem;
+        .slider-indicator.active {
+            background-color: var(--secondary);
+            transform: scale(1.2);
         }
         
-        .chapter-description {
-            color: var(--gray-700);
-            font-size: 0.95rem;
-        }
-        
-        /* Enhanced Pricing Section */
+        /* Mobile Optimized Pricing Section */
         .pricing {
-            padding: 6rem 0;
+            padding: 4rem 0;
             background-color: white;
             position: relative;
         }
         
         .price-card {
-            max-width: 800px;
+            max-width: 100%;
             margin: 0 auto;
             background: white;
             border-radius: 16px;
-            padding: 3rem;
+            padding: 2rem 1.5rem;
             position: relative;
             overflow: hidden;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
@@ -724,12 +665,12 @@
         .price-card::before {
             content: "";
             position: absolute;
-            width: 300px;
-            height: 300px;
+            width: 200px;
+            height: 200px;
             border-radius: 50%;
             background: linear-gradient(135deg, var(--secondary-light), transparent);
-            top: -150px;
-            right: -150px;
+            top: -100px;
+            right: -100px;
             opacity: 0.1;
             z-index: 1;
         }
@@ -737,24 +678,25 @@
         .price-card::after {
             content: "";
             position: absolute;
-            width: 200px;
-            height: 200px;
+            width: 150px;
+            height: 150px;
             border-radius: 50%;
             background: linear-gradient(135deg, var(--accent-light), transparent);
-            bottom: -100px;
-            left: -100px;
+            bottom: -75px;
+            left: -75px;
             opacity: 0.1;
             z-index: 1;
         }
         
         .ribbon {
             position: absolute;
-            top: 30px;
+            top: 20px;
             right: -35px;
             transform: rotate(45deg);
             background: var(--accent);
-            padding: 0.5rem 3rem;
+            padding: 0.4rem 2.5rem;
             font-weight: 700;
+            font-size: 0.9rem;
             color: var(--dark);
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
             z-index: 3;
@@ -763,16 +705,16 @@
         .original-price {
             text-decoration: line-through;
             color: var(--gray-500);
-            font-size: 1.5rem;
-            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+            margin-bottom: 0.3rem;
             display: inline-block;
         }
         
         .current-price {
-            font-size: 4rem;
+            font-size: 3rem;
             font-weight: 800;
             color: var(--secondary);
-            margin: 0.5rem 0 1rem;
+            margin: 0.3rem 0 0.7rem;
             line-height: 1;
         }
         
@@ -783,115 +725,97 @@
             padding: 0.25rem 1rem;
             border-radius: 20px;
             font-weight: 600;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.2rem;
+            font-size: 0.9rem;
         }
         
         .price-features {
-            margin: 2rem 0;
+            margin: 1.5rem 0;
             text-align: right;
         }
         
         .price-feature-item {
-            margin-bottom: 1rem;
+            margin-bottom: 0.8rem;
             display: flex;
-            align-items: center;
-            font-size: 1.1rem;
+            align-items: flex-start;
+            font-size: 0.95rem;
             color: var(--gray-800);
         }
         
         .price-feature-icon {
-            margin-left: 0.75rem;
+            margin-left: 0.6rem;
             color: var(--secondary);
-            font-size: 1.25rem;
+            font-size: 1.1rem;
+            flex-shrink: 0;
+            margin-top: 0.2rem;
         }
         
-        /* Enhanced Trust Badges */
-        .trust-badges {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 1.5rem;
-            margin-top: 2rem;
-            padding: 1.5rem;
-            background: var(--light);
-            border-radius: 12px;
+        .price-feature-text {
+            flex: 1;
         }
         
-        .trust-badge {
-            display: flex;
-            align-items: center;
-            font-size: 1rem;
-            color: var(--gray-700);
-            font-weight: 600;
-        }
-        
-        .trust-badge i {
-            margin-left: 0.5rem;
-            font-size: 1.25rem;
-            color: var(--secondary);
-        }
-        
-        /* Added Guarantee Section */
+        /* Mobile Optimized Guarantee Section */
         .guarantee {
-            padding: 6rem 0;
+            padding: 4rem 0;
             background-color: var(--light);
             text-align: center;
         }
         
         .guarantee-content {
-            max-width: 700px;
+            max-width: 100%;
             margin: 0 auto;
             background: white;
             border-radius: 16px;
-            padding: 3rem;
+            padding: 2rem 1.5rem;
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
         }
         
         .guarantee-icon {
-            font-size: 5rem;
+            font-size: 3.5rem;
             color: var(--secondary);
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.2rem;
         }
         
         .guarantee-title {
-            font-size: 2rem;
+            font-size: 1.5rem;
             font-weight: 700;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.2rem;
             color: var(--primary);
+            line-height: 1.3;
         }
         
         .guarantee-text {
-            font-size: 1.2rem;
-            line-height: 1.7;
+            font-size: 1rem;
+            line-height: 1.6;
             color: var(--gray-700);
         }
         
-        /* Added FAQ Section */
+        /* Mobile Optimized FAQ Section */
         .faq {
-            padding: 6rem 0;
+            padding: 4rem 0;
             background-color: white;
         }
         
         .faq-container {
-            max-width: 800px;
+            max-width: 100%;
             margin: 0 auto;
         }
         
         .faq-item {
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.2rem;
             border-bottom: 1px solid var(--gray-300);
-            padding-bottom: 1.5rem;
+            padding-bottom: 1.2rem;
         }
         
         .faq-question {
             font-weight: 700;
-            font-size: 1.3rem;
-            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            margin-bottom: 0.8rem;
             color: var(--primary);
             position: relative;
             cursor: pointer;
             padding-right: 2rem;
+            line-height: 1.4;
         }
         
         .faq-question::after {
@@ -900,7 +824,7 @@
             right: 0;
             top: 50%;
             transform: translateY(-50%);
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             color: var(--secondary);
             transition: all 0.3s ease;
         }
@@ -910,8 +834,8 @@
         }
         
         .faq-answer {
-            font-size: 1.1rem;
-            line-height: 1.7;
+            font-size: 0.95rem;
+            line-height: 1.6;
             color: var(--gray-700);
             max-height: 0;
             overflow: hidden;
@@ -920,28 +844,30 @@
         
         .faq-answer.show {
             max-height: 1000px;
-            margin-top: 1rem;
+            margin-top: 0.8rem;
         }
         
-        /* Added Author Section */
+        /* Mobile Optimized Author Section */
         .author {
-            padding: 6rem 0;
+            padding: 4rem 0;
             background-color: var(--light);
         }
         
         .author-container {
             display: flex;
+            flex-direction: column;
             align-items: center;
-            gap: 3rem;
+            gap: 1.5rem;
             background: white;
             border-radius: 16px;
-            padding: 3rem;
+            padding: 2rem 1.5rem;
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            text-align: center;
         }
         
         .author-image-large {
-            flex: 0 0 200px;
-            height: 200px;
+            width: 150px;
+            height: 150px;
             border-radius: 16px;
             object-fit: cover;
             border: 3px solid var(--secondary);
@@ -949,56 +875,83 @@
         }
         
         .author-bio-content h3 {
-            font-size: 2rem;
+            font-size: 1.5rem;
             font-weight: 700;
-            margin-bottom: 1rem;
+            margin-bottom: 0.7rem;
             color: var(--primary);
         }
         
         .author-title-large {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             color: var(--secondary);
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.2rem;
             font-weight: 600;
+            line-height: 1.4;
         }
         
         .author-bio {
-            font-size: 1.1rem;
-            line-height: 1.7;
+            font-size: 0.95rem;
+            line-height: 1.6;
             color: var(--gray-700);
         }
         
         .author-credentials {
-            margin-top: 1.5rem;
+            margin-top: 1.2rem;
             display: flex;
             flex-wrap: wrap;
-            gap: 1rem;
+            justify-content: center;
+            gap: 0.7rem;
         }
         
         .credential-badge {
             background: rgba(0, 132, 61, 0.1);
             color: var(--secondary);
-            padding: 0.5rem 1rem;
+            padding: 0.4rem 0.8rem;
             border-radius: 30px;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             font-weight: 600;
         }
         
-        /* Enhanced Footer */
+        /* Mobile Optimized Final CTA */
+        .final-cta {
+            padding: 4rem 0;
+            background: linear-gradient(rgba(19, 43, 67, 0.9), rgba(19, 43, 67, 0.95)), 
+                        url('https://images.unsplash.com/photo-1560472355-536de3962603?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80') center/cover;
+            text-align: center;
+            color: white;
+        }
+        
+        .final-cta h2 {
+            font-size: 1.8rem;
+            font-weight: 800;
+            margin-bottom: 1.2rem;
+            line-height: 1.3;
+        }
+        
+        .final-cta p {
+            font-size: 1.05rem;
+            max-width: 100%;
+            margin: 0 auto 2rem;
+            opacity: 0.9;
+            line-height: 1.5;
+        }
+        
+        /* Enhanced Mobile Footer */
         footer {
             background: linear-gradient(135deg, var(--primary), var(--primary-dark));
             color: white;
-            padding: 4rem 0 2rem;
+            padding: 3rem 0 1.5rem;
             position: relative;
+            font-size: 0.9rem;
         }
         
         footer::before {
             content: "";
             position: absolute;
             width: 150%;
-            height: 100px;
+            height: 70px;
             background: white;
-            top: -50px;
+            top: -35px;
             left: -25%;
             border-radius: 50%;
         }
@@ -1007,16 +960,16 @@
             position: relative;
             z-index: 2;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 3rem;
+            grid-template-columns: 1fr;
+            gap: 2rem;
         }
         
         .footer-column h4 {
-            font-size: 1.3rem;
-            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+            margin-bottom: 1.2rem;
             color: white;
             position: relative;
-            padding-bottom: 0.75rem;
+            padding-bottom: 0.6rem;
         }
         
         .footer-column h4::after {
@@ -1034,323 +987,254 @@
         }
         
         .footer-links li {
-            margin-bottom: 0.75rem;
+            margin-bottom: 0.7rem;
         }
         
         .footer-links a {
             color: rgba(255, 255, 255, 0.8);
             transition: all 0.3s ease;
+            display: block;
+            padding: 0.5rem 0;
         }
         
-        .footer-links a:hover {
+        .footer-links a:active {
             color: white;
-            padding-right: 5px;
+            padding-right: 10px;
         }
         
         .copyright {
             text-align: center;
-            padding-top: 3rem;
-            margin-top: 3rem;
+            padding-top: 2rem;
+            margin-top: 2rem;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
             color: rgba(255, 255, 255, 0.6);
-            font-size: 0.9rem;
+            font-size: 0.85rem;
         }
         
-        /* Enhanced Payment Methods */
+        /* Mobile-optimized Payment Methods */
         .payment-methods {
             display: flex;
             justify-content: center;
-            gap: 1rem;
-            margin-top: 1.5rem;
+            flex-wrap: wrap;
+            gap: 0.7rem;
+            margin-top: 1.2rem;
         }
         
         .payment-method {
-            width: 50px;
-            height: 30px;
+            width: 45px;
+            height: 28px;
             background: white;
             border-radius: 5px;
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: 700;
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             color: var(--gray-700);
         }
         
-        /* Final CTA Section */
-        .final-cta {
-            padding: 6rem 0;
-            background: linear-gradient(rgba(19, 43, 67, 0.9), rgba(19, 43, 67, 0.95)), 
-                        url('https://images.unsplash.com/photo-1560472355-536de3962603?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80') center/cover;
-            text-align: center;
-            color: white;
-        }
-        
-        .final-cta h2 {
-            font-size: 2.5rem;
-            font-weight: 800;
-            margin-bottom: 1.5rem;
-        }
-        
-        .final-cta p {
-            font-size: 1.25rem;
-            max-width: 700px;
-            margin: 0 auto 3rem;
-            opacity: 0.9;
-        }
-        
-        /* Exit Intent Popup */
-        .exit-popup {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.8);
-            display: none;
-            justify-content: center;
-            align-items: center;
-            z-index: 9999;
-        }
-        
-        .exit-popup-content {
-            max-width: 500px;
-            background: white;
-            border-radius: 16px;
-            padding: 3rem;
-            position: relative;
-            text-align: center;
-        }
-        
-        .exit-popup-close {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            font-size: 1.5rem;
-            color: var(--gray-600);
-            cursor: pointer;
-        }
-        
-        .exit-popup h3 {
-            font-size: 2rem;
-            color: var(--primary);
-            margin-bottom: 1.5rem;
-        }
-        
-        .exit-popup p {
-            font-size: 1.1rem;
-            color: var(--gray-700);
-            margin-bottom: 2rem;
-        }
-        
-        /* Lead Capture Popup */
-        .lead-capture-popup {
+        /* Back to top button */
+        .back-to-top {
             position: fixed;
             bottom: 20px;
-            right: 20px;
-            width: 350px;
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.15);
-            padding: 2rem;
-            z-index: 900;
-            display: none;
+            left: 20px;
+            width: 40px;
+            height: 40px;
+            background-color: var(--secondary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 99;
+            font-size: 1.2rem;
         }
         
-        .lead-capture-close {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            font-size: 1.25rem;
-            color: var(--gray-600);
-            cursor: pointer;
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
         }
         
-        .lead-form {
-            margin-top: 1.5rem;
+        /* Improved scroll animations for mobile */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
         }
         
-        .lead-form input {
-            width: 100%;
-            padding: 0.75rem;
-            border: 1px solid var(--gray-300);
-            border-radius: 6px;
-            margin-bottom: 1rem;
-            font-size: 1rem;
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
         
-        /* Mobile Optimization */
-        @media (max-width: 992px) {
-            .hero h1 {
-                font-size: 2.8rem;
+        /* Media queries for medium-sized screens */
+        @media (min-width: 768px) {
+            .container {
+                padding: 0 2rem;
             }
             
-            .author-container {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            .author-image-large {
-                margin: 0 auto;
-            }
-            
-            .author-credentials {
-                justify-content: center;
-            }
-            
-            .benefit-item {
-                flex: 0 0 calc(50% - 2rem);
-            }
-        }
-        
-        @media (max-width: 768px) {
             .section-heading h2 {
-                font-size: 2rem;
-            }
-            
-            .hero {
-                padding: 10rem 0 6rem;
-            }
-            
-            .hero h1 {
                 font-size: 2.2rem;
             }
             
-            .hero p {
-                font-size: 1.2rem;
-            }
-            
-            .feature-grid {
-                gap: 1.5rem;
-            }
-            
-            .current-price {
-                font-size: 3rem;
-            }
-            
-            .price-card {
-                padding: 2rem;
-            }
-            
-            .nav-links {
-                display: none;
-            }
-            
-            .countdown {
-                top: 51px;
-            }
-            
-            .benefit-item {
-                flex: 0 0 100%;
-            }
-        }
-        
-        @media (max-width: 576px) {
             .hero h1 {
-                font-size: 1.8rem;
-            }
-            
-            .hero p {
-                font-size: 1.1rem;
-            }
-            
-            .current-price {
                 font-size: 2.5rem;
             }
             
-            .ribbon {
-                right: -40px;
-                font-size: 0.8rem;
+            .hero p {
+                font-size: 1.3rem;
             }
             
-            .btn-large {
-                padding: 0.75rem 1.5rem;
-                font-size: 1.1rem;
+            .feature-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
             
-            .countdown-unit {
-                padding: 0.15rem 0.3rem;
+            .footer-content {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .author-container {
+                flex-direction: row;
+                text-align: right;
+                align-items: flex-start;
+                padding: 3rem;
+            }
+            
+            .btn {
+                width: auto;
+            }
+        }
+        
+        /* Media queries for larger screens */
+        @media (min-width: 992px) {
+            .mobile-nav-toggle {
+                display: none;
+            }
+            
+            .nav-links {
+                position: static;
+                width: auto;
+                height: auto;
+                background: transparent;
+                display: flex;
+                flex-direction: row;
+                padding: 0;
+                box-shadow: none;
+                overflow: visible;
+                gap: 1.5rem;
+            }
+            
+            .nav-links a {
+                padding: 0;
+                border-bottom: none;
                 font-size: 1rem;
             }
             
-            .countdown-text {
-                font-size: 0.9rem;
+            .nav-overlay {
+                display: none;
             }
             
-            .lead-capture-popup {
-                width: calc(100% - 40px);
-                bottom: 10px;
-                right: 20px;
+            .header-cta {
+                display: block;
+                padding: 0.5rem 1rem;
+                background-color: var(--accent);
+                color: var(--primary-dark);
+                border-radius: 6px;
+                font-weight: 600;
+                transition: all 0.3s ease;
+            }
+            
+            .header-cta:hover {
+                background-color: var(--accent-light);
+                transform: translateY(-2px);
+            }
+            
+            .feature-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .testimonials-slider {
+                overflow: visible;
+            }
+            
+            .testimonials-track {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 2rem;
+                padding: 0;
+            }
+            
+            .testimonial {
+                width: 100%;
+                margin-right: 0;
+            }
+            
+            .slider-indicators {
+                display: none;
             }
         }
         
-        /* Added Animations */
-        .fade-in {
-            animation: fadeIn 1s ease-in-out;
+        /* Fix for iOS -webkit-overflow-scrolling issues */
+        @media (max-width: 991px) {
+            .testimonials-slider {
+                -webkit-overflow-scrolling: touch;
+            }
         }
         
-        .slide-in-right {
-            animation: slideInRight 1s ease-in-out;
+        /* Fix for safe-area on newer iPhones */
+        @supports (padding-top: env(safe-area-inset-top)) {
+            header {
+                padding-top: calc(0.75rem + env(safe-area-inset-top));
+            }
+            
+            .countdown {
+                top: calc(52px + env(safe-area-inset-top));
+            }
+            
+            .hero {
+                padding-top: calc(8rem + env(safe-area-inset-top));
+            }
         }
         
-        .slide-in-left {
-            animation: slideInLeft 1s ease-in-out;
-        }
-        
-        .slide-in-bottom {
-            animation: slideInBottom 1s ease-in-out;
-        }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        
-        @keyframes slideInRight {
-            from { transform: translateX(50px); opacity: 0; }
-            to { transform: translateX(0); opacity: 1; }
-        }
-        
-        @keyframes slideInLeft {
-            from { transform: translateX(-50px); opacity: 0; }
-            to { transform: translateX(0); opacity: 1; }
-        }
-        
-        @keyframes slideInBottom {
-            from { transform: translateY(50px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
-        }
-        
-        /* Smooth Scroll */
-        html {
-            scroll-behavior: smooth;
-            scroll-padding-top: 100px;
-        }
-        
-        /* Added Stock Counter */
-        .stock-counter {
-            display: inline-block;
-            background: rgba(255, 0, 0, 0.1);
-            color: #f44336;
-            padding: 0.25rem 1rem;
-            border-radius: 20px;
-            font-weight: 600;
-            margin-top: 1rem;
+        /* Additional utility styles for accessibility */
+        .visually-hidden {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
         }
     </style>
 </head>
 <body>
-    <!-- Fixed Header -->
+    <!-- Fixed Header with mobile menu -->
     <header id="header">
         <div class="container header-container">
             <div class="logo">الدليل الشامل للشركات البريطانية</div>
-            <nav class="nav-links">
-                <a href="#features">المميزات</a>
-                <a href="#testimonials">آراء العملاء</a>
-                <a href="#pricing">السعر</a>
-                <a href="#faq">الأسئلة الشائعة</a>
+            <nav>
+                <button class="mobile-nav-toggle" aria-label="قائمة التنقل" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <div class="nav-overlay"></div>
+                <div class="nav-links">
+                    <a href="#features">المميزات</a>
+                    <a href="#testimonials">آراء العملاء</a>
+                    <a href="#pricing">السعر</a>
+                    <a href="#faq">الأسئلة الشائعة</a>
+                    <a href="#author">المؤلف</a>
+                </div>
+                <a href="#pricing" class="header-cta">احصل عليه الآن</a>
             </nav>
-            <a href="#pricing" class="header-cta">احصل عليه الآن</a>
         </div>
     </header>
     
@@ -1369,14 +1253,8 @@
     <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="container hero-content fade-in">
-            <h1>وفّر 15,000 ريال وأسس شركتك البريطانية بنفسك!</h1>
-            <p>الدليل العربي الوحيد الذي يشرح خطوات التأسيس بتفاصيل دقيقة تغنيك عن وكلاء التأسيس</p>
-            
-            <!-- Added Hero Video Section -->
-            <div class="hero-video-container">
-                <img src="/api/placeholder/640/360" alt="شرح دليل تأسيس الشركات البريطانية للمستثمر السعودي" class="hero-video">
-            </div>
-            
+            <h1>اكتشف الطريقة المضمونة لتأسيس شركتك البريطانية بنفسك</h1>
+            <p>دليل شامل باللغة العربية يوفر عليك أكثر من 15,000 ريال من رسوم وكلاء التأسيس</p>
             <a href="#pricing" class="btn btn-primary btn-large btn-pulse">احصل على نسختك الآن</a>
         </div>
     </section>
@@ -1384,46 +1262,7 @@
     <!-- Limited Offer Banner -->
     <section class="limited-offer">
         <div class="container">
-            فقط لأول 50 مستثمر: خصم 300 ريال + استشارة مجانية لمدة 30 دقيقة مع خبير الضرائب الدولية
-        </div>
-    </section>
-    
-    <!-- Added Problem-Solution Section -->
-    <section class="problem-solution">
-        <div class="container">
-            <h3>هل سئمت من دفع آلاف الريالات لوكلاء التأسيس؟</h3>
-            <p>مع دليلنا الشامل، يمكنك توفير أكثر من 15,000 ريال وإنجاز جميع الخطوات بنفسك خلال أيام معدودة!</p>
-            
-            <div class="benefits-list">
-                <div class="benefit-item">
-                    <div class="benefit-icon"><i class="fas fa-dollar-sign"></i></div>
-                    <h4 class="benefit-title">وفّر 15,000 ريال</h4>
-                    <p>تجنب رسوم وكلاء التأسيس المرتفعة وأسس شركتك بتكلفة أقل بكثير</p>
-                </div>
-                <div class="benefit-item">
-                    <div class="benefit-icon"><i class="fas fa-clock"></i></div>
-                    <h4 class="benefit-title">أسرع بـ 3 أضعاف</h4>
-                    <p>أكمل التأسيس خلال 3-7 أيام بدلاً من أسابيع الانتظار مع الوكلاء</p>
-                </div>
-                <div class="benefit-item">
-                    <div class="benefit-icon"><i class="fas fa-check-circle"></i></div>
-                    <h4 class="benefit-title">خطوات مضمونة</h4>
-                    <p>تم اختبار جميع الخطوات من قبل أكثر من 200 مستثمر سعودي بنجاح</p>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Added Social Proof Bar -->
-    <section class="social-proof-bar">
-        <div class="container">
-            <h3>يثق بنا أكثر من 5000 مستثمر سعودي وخليجي</h3>
-            <div class="social-proof-logos">
-                <img src="/api/placeholder/120/40" alt="شعار 1" class="social-proof-logo">
-                <img src="/api/placeholder/120/40" alt="شعار 2" class="social-proof-logo">
-                <img src="/api/placeholder/120/40" alt="شعار 3" class="social-proof-logo">
-                <img src="/api/placeholder/120/40" alt="شعار 4" class="social-proof-logo">
-            </div>
+            فقط لأول 50 مستثمر: خصم 300 ريال + استشارة مجانية لمدة 30 دقيقة
         </div>
     </section>
     
@@ -1432,62 +1271,54 @@
         <div class="container">
             <div class="section-heading">
                 <h2>لماذا تأسيس شركة في بريطانيا هو خيارك الأفضل؟</h2>
-                <p>اكتشف المزايا التي جعلت آلاف المستثمرين السعوديين يختارون المملكة المتحدة لأعمالهم</p>
+                <p>اكتشف المزايا التي جعلت آلاف المستثمرين السعوديين يختارون المملكة المتحدة</p>
             </div>
             <div class="feature-grid">
-                <div class="feature-card slide-in-bottom">
+                <div class="feature-card fade-in">
                     <div class="feature-icon">🌐</div>
                     <h3>سمعة عالمية مرموقة</h3>
-                    <p>استفد من المكانة العالمية للشركات البريطانية في فتح أسواق جديدة وبناء ثقة العملاء والشركاء التجاريين</p>
+                    <p>استفد من المكانة العالمية للشركات البريطانية في فتح أسواق جديدة وبناء الثقة</p>
                 </div>
-                <div class="feature-card slide-in-bottom" style="animation-delay: 0.2s;">
+                <div class="feature-card fade-in">
                     <div class="feature-icon">💼</div>
                     <h3>حماية أصولك</h3>
-                    <p>هيكلة قانونية متطورة تفصل بين أصولك الشخصية وأعمالك التجارية لتوفير حماية قانونية كاملة لثروتك</p>
+                    <p>هيكلة قانونية متطورة تفصل بين أصولك الشخصية وأعمالك التجارية</p>
                 </div>
-                <div class="feature-card slide-in-bottom" style="animation-delay: 0.4s;">
+                <div class="feature-card fade-in">
                     <div class="feature-icon">🔒</div>
                     <h3>خصوصية وأمان</h3>
-                    <p>حلول قانونية لحماية هويتك وخصوصية معلوماتك الشخصية مع الحفاظ على جميع المتطلبات القانونية</p>
+                    <p>حلول قانونية لحماية هويتك وخصوصية معلوماتك الشخصية</p>
                 </div>
-                <div class="feature-card slide-in-bottom" style="animation-delay: 0.6s;">
+                <div class="feature-card fade-in">
                     <div class="feature-icon">💰</div>
                     <h3>مزايا ضريبية</h3>
-                    <p>استفد من اتفاقيات منع الازدواج الضريبي بين المملكة المتحدة والسعودية والأنظمة الضريبية المرنة</p>
+                    <p>استفد من اتفاقيات منع الازدواج الضريبي بين المملكة المتحدة والسعودية</p>
                 </div>
-                <div class="feature-card slide-in-bottom" style="animation-delay: 0.8s;">
+                <div class="feature-card fade-in">
                     <div class="feature-icon">🏦</div>
                     <h3>حسابات بنكية دولية</h3>
-                    <p>خطوات محددة لفتح حسابات مصرفية بريطانية وعالمية لشركتك تسهل عمليات التحويل والتعاملات الدولية</p>
+                    <p>خطوات محددة لفتح حسابات مصرفية بريطانية تسهل التعاملات الدولية</p>
                 </div>
-                <div class="feature-card slide-in-bottom" style="animation-delay: 1s;">
+                <div class="feature-card fade-in">
                     <div class="feature-icon">🚀</div>
                     <h3>توسيع نطاق أعمالك</h3>
-                    <p>أساس متين للنمو والتوسع في أسواق أوروبا والعالم مع إمكانية الحصول على تأشيرات أعمال متعددة</p>
+                    <p>أساس متين للنمو والتوسع في أسواق أوروبا والعالم</p>
                 </div>
             </div>
         </div>
     </section>
     
-    <!-- Added Customer Counter Section -->
-    <section class="customer-counter">
-        <div class="container">
-            <div class="counter-number">+200</div>
-            <p class="counter-text">مستثمر سعودي نجحوا في تأسيس شركاتهم البريطانية بفضل هذا الدليل</p>
-        </div>
-    </section>
-    
-    <!-- Testimonials Section -->
+    <!-- Testimonials Section with horizontal scroll for mobile -->
     <section class="social-proof" id="testimonials">
         <div class="container">
             <div class="section-heading">
                 <h2>ماذا يقول المستثمرون الذين استخدموا هذا الدليل؟</h2>
-                <p>تجارب حقيقية من رواد أعمال سعوديين استفادوا من الدليل في تأسيس شركاتهم البريطانية</p>
+                <p>تجارب حقيقية من رواد أعمال سعوديين استفادوا من الدليل</p>
             </div>
-            <div class="testimonial-slider">
-                <div class="testimonials-grid">
-                    <div class="testimonial slide-in-left">
-                        <p>"كنت سأدفع أكثر من 15,000 ريال لوكيل تأسيس، لكن هذا الدليل مكنني من تأسيس شركتي البريطانية بنفسي خلال أسبوع فقط. شرح مفصل وواضح جداً يناسب حتى من ليس لديه خبرة سابقة."</p>
+            <div class="testimonials-slider">
+                <div class="testimonials-track">
+                    <div class="testimonial">
+                        <p>"كنت سأدفع أكثر من 15,000 ريال لوكيل تأسيس، لكن هذا الدليل مكنني من تأسيس شركتي البريطانية بنفسي خلال أسبوع فقط. شرح مفصل وواضح جداً."</p>
                         <div class="testimonial-author">
                             <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="صورة محمد العتيبي" class="author-image">
                             <div class="author-details">
@@ -1496,8 +1327,8 @@
                             </div>
                         </div>
                     </div>
-                    <div class="testimonial slide-in-right">
-                        <p>"بفضل هذا الدليل، تمكنت من فتح حساب بنكي تجاري في لندن وتوسيع أعمالي للسوق الأوروبي. كل التفاصيل القانونية والإجرائية موضحة بشكل ممتاز باللغة العربية، مما جعل العملية أسهل بكثير."</p>
+                    <div class="testimonial">
+                        <p>"بفضل هذا الدليل، تمكنت من فتح حساب بنكي تجاري في لندن وتوسيع أعمالي للسوق الأوروبي. كل التفاصيل القانونية موضحة بشكل ممتاز."</p>
                         <div class="testimonial-author">
                             <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="صورة سارة الدوسري" class="author-image">
                             <div class="author-details">
@@ -1506,8 +1337,8 @@
                             </div>
                         </div>
                     </div>
-                    <div class="testimonial slide-in-left" style="animation-delay: 0.3s;">
-                        <p>"أنصح بشدة بهذا الدليل لكل مستثمر سعودي. وفر علي الكثير من الوقت والمال والجهد. النماذج الجاهزة والشروحات خطوة بخطوة لا تقدر بثمن. الآن لدي ثلاث شركات في بريطانيا بفضل هذا الدليل."</p>
+                    <div class="testimonial">
+                        <p>"أنصح بشدة بهذا الدليل لكل مستثمر سعودي. وفر علي الكثير من الوقت والمال والجهد. الآن لدي ثلاث شركات في بريطانيا بفضل هذا الدليل."</p>
                         <div class="testimonial-author">
                             <img src="https://randomuser.me/api/portraits/men/63.jpg" alt="صورة فهد القحطاني" class="author-image">
                             <div class="author-details">
@@ -1518,65 +1349,11 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-    
-    <!-- Added "What's Inside" Section -->
-    <section class="whats-inside">
-        <div class="container">
-            <div class="section-heading">
-                <h2>ما الذي ستحصل عليه في هذا الدليل؟</h2>
-                <p>دليل شامل وعملي يقودك خطوة بخطوة لتأسيس شركتك البريطانية دون الحاجة لخبرة سابقة</p>
-            </div>
-            <div class="content-preview">
-                <div class="content-chapters">
-                    <div>
-                        <div class="chapter-item">
-                            <div class="chapter-number">1</div>
-                            <div class="chapter-content">
-                                <h4 class="chapter-title">اختيار الشكل القانوني المناسب</h4>
-                                <p class="chapter-description">كيفية اختيار الهيكل القانوني الأمثل لشركتك حسب احتياجاتك المالية والضريبية.</p>
-                            </div>
-                        </div>
-                        <div class="chapter-item">
-                            <div class="chapter-number">2</div>
-                            <div class="chapter-content">
-                                <h4 class="chapter-title">خطوات التسجيل الرسمي</h4>
-                                <p class="chapter-description">شرح مفصل بالصور لتسجيل شركتك خطوة بخطوة لدى الجهات الرسمية البريطانية.</p>
-                            </div>
-                        </div>
-                        <div class="chapter-item">
-                            <div class="chapter-number">3</div>
-                            <div class="chapter-content">
-                                <h4 class="chapter-title">فتح الحسابات البنكية</h4>
-                                <p class="chapter-description">أسرار فتح الحسابات البنكية التجارية للشركات البريطانية بسهولة وسرعة.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="chapter-item">
-                            <div class="chapter-number">4</div>
-                            <div class="chapter-content">
-                                <h4 class="chapter-title">الامتثال الضريبي</h4>
-                                <p class="chapter-description">دليل التسجيل الضريبي والالتزامات المالية وكيفية الاستفادة من اتفاقيات منع الازدواج الضريبي.</p>
-                            </div>
-                        </div>
-                        <div class="chapter-item">
-                            <div class="chapter-number">5</div>
-                            <div class="chapter-content">
-                                <h4 class="chapter-title">هيكلة الأعمال الدولية</h4>
-                                <p class="chapter-description">استراتيجيات تنظيم أعمالك بين السعودية وبريطانيا لتحقيق أقصى فائدة قانونية وضريبية.</p>
-                            </div>
-                        </div>
-                        <div class="chapter-item">
-                            <div class="chapter-number">6</div>
-                            <div class="chapter-content">
-                                <h4 class="chapter-title">نماذج ومستندات جاهزة</h4>
-                                <p class="chapter-description">أكثر من 20 نموذجاً ومستنداً جاهزاً للاستخدام الفوري في جميع مراحل التأسيس.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <!-- Slide indicators for mobile -->
+            <div class="slider-indicators">
+                <span class="slider-indicator active"></span>
+                <span class="slider-indicator"></span>
+                <span class="slider-indicator"></span>
             </div>
         </div>
     </section>
@@ -1586,16 +1363,15 @@
         <div class="container">
             <div class="section-heading">
                 <h2>احصل على دليلك الشامل اليوم</h2>
-                <p>كل ما تحتاجه لتأسيس شركتك البريطانية بثقة وبدون وسطاء، وبتكلفة أقل بكثير من الوكلاء</p>
+                <p>كل ما تحتاجه لتأسيس شركتك البريطانية بثقة وبدون وسطاء</p>
             </div>
             <div class="price-card fade-in">
-                <div class="ribbon">عرض لفترة محدودة</div>
+                <div class="ribbon">عرض محدود</div>
                 <div class="price-content">
                     <h3>دليل تأسيس الشركات البريطانية للمستثمر السعودي</h3>
                     <p class="original-price">899 ريال سعودي</p>
-                    <p class="current-price">599 ريال سعودي</p>
+                    <p class="current-price">599 ريال</p>
                     <p class="save-text">وفر 300 ريال عند الشراء اليوم!</p>
-                    <p class="stock-counter">فقط 12 نسخة متبقية بهذا السعر!</p>
                     
                     <div class="price-features">
                         <div class="price-feature-item">
@@ -1619,10 +1395,6 @@
                             <span class="price-feature-icon">✅</span>
                         </div>
                         <div class="price-feature-item">
-                            <span class="price-feature-text">خطط هيكلة ناجحة لأعمالك الدولية</span>
-                            <span class="price-feature-icon">✅</span>
-                        </div>
-                        <div class="price-feature-item">
                             <span class="price-feature-text">بونص: استشارة مجانية مع خبير ضرائب دولي (30 دقيقة)</span>
                             <span class="price-feature-icon">🎁</span>
                         </div>
@@ -1632,14 +1404,7 @@
                         </div>
                     </div>
                     
-                    <a href="#" class="btn btn-primary btn-large btn-pulse">اشتر الآن - توصيل فوري</a>
-                    
-                    <!-- Enhanced Trust Badges -->
-                    <div class="trust-badges">
-                        <div class="trust-badge"><i class="fas fa-lock"></i> دفع آمن 100%</div>
-                        <div class="trust-badge"><i class="fas fa-shield-alt"></i> ضمان استرداد لمدة 30 يوم</div>
-                        <div class="trust-badge"><i class="fas fa-file-invoice"></i> فاتورة ضريبية معتمدة</div>
-                    </div>
+                    <a href="#" class="btn btn-primary btn-large btn-pulse btn-center">اشتر الآن - توصيل فوري</a>
                     
                     <div style="margin-top: 1.5rem; text-align: center;">
                         <p style="margin-bottom: 1rem; color: var(--gray-600);">الدفع آمن 100% من خلال:</p>
@@ -1663,10 +1428,10 @@
                 <h2>ضمان استرداد كامل المبلغ</h2>
                 <p>ثقتنا في جودة هذا الدليل جعلتنا نقدم ضماناً غير مسبوق</p>
             </div>
-            <div class="guarantee-content slide-in-bottom">
-                <div class="guarantee-icon"><i class="fas fa-shield-alt"></i></div>
+            <div class="guarantee-content fade-in">
+                <div class="guarantee-icon">🛡️</div>
                 <h3 class="guarantee-title">ضمان استرداد كامل المبلغ لمدة 30 يوماً</h3>
-                <p class="guarantee-text">نحن واثقون تماماً من جودة هذا الدليل لدرجة أننا نقدم ضمان استرداد كامل المبلغ لمدة 30 يوماً بدون أي أسئلة. جربه، وإذا لم تجد فيه القيمة المتوقعة، سنعيد لك كامل المبلغ فوراً. نحن نؤمن أن رضاك هو أولويتنا القصوى.</p>
+                <p class="guarantee-text">نحن واثقون تماماً من جودة هذا الدليل لدرجة أننا نقدم ضمان استرداد كامل المبلغ لمدة 30 يوماً بدون أي أسئلة. جربه، وإذا لم تجد فيه القيمة المتوقعة، سنعيد لك كامل المبلغ فوراً.</p>
             </div>
         </div>
     </section>
@@ -1692,16 +1457,8 @@
                     <div class="faq-answer">يتضمن الدليل استراتيجيات محددة وقائمة بالبنوك الموصى بها وخطوات تقديم طلب ناجح لفتح الحساب. نشارك معك الأخطاء الشائعة التي يجب تجنبها والوثائق المطلوبة بالتفصيل.</div>
                 </div>
                 <div class="faq-item">
-                    <div class="faq-question">هل سأحتاج إلى محاسب بريطاني؟</div>
-                    <div class="faq-answer">يوضح الدليل متى تحتاج إلى محاسب ويقدم خيارات مناسبة للميزانيات المختلفة. كما يشرح المتطلبات المحاسبية الأساسية التي يمكنك إدارتها بنفسك في البداية.</div>
-                </div>
-                <div class="faq-item">
                     <div class="faq-question">كيف سأتلقى الدليل بعد الشراء؟</div>
                     <div class="faq-answer">ستتلقى رابط تحميل الدليل بصيغة PDF فوراً بعد إتمام عملية الشراء على بريدك الإلكتروني. يمكنك تحميله والاحتفاظ به على جهازك أو طباعته.</div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">هل المعلومات في الدليل محدثة؟</div>
-                    <div class="faq-answer">نعم، الدليل يتم تحديثه بانتظام ليتضمن أحدث التغييرات في القوانين واللوائح البريطانية. عند الشراء، ستحصل على تحديثات مجانية لمدة عامين كاملين.</div>
                 </div>
             </div>
         </div>
@@ -1714,15 +1471,13 @@
                 <h2>من المؤلف</h2>
                 <p>تعرف على خبير تأسيس الشركات الدولية الذي قام بتأليف هذا الدليل</p>
             </div>
-            <div class="author-container slide-in-bottom">
+            <div class="author-container fade-in">
                 <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="صورة المؤلف" class="author-image-large">
                 <div class="author-bio-content">
                     <h3>محمد المغربي</h3>
                     <p class="author-title-large">خبير تأسيس الشركات الدولية ومستشار ضرائب معتمد</p>
                     <p class="author-bio">
                         خبير في تأسيس الشركات الدولية مع خبرة 10+ سنوات في مساعدة المستثمرين السعوديين. حاصل على شهادة في القانون التجاري الدولي ومستشار معتمد في هيكلة الشركات عبر الحدود.
-                        <br><br>
-                        ساعدت أكثر من 200 مستثمر خليجي في تأسيس أعمالهم في المملكة المتحدة والاتحاد الأوروبي، وأشارك الآن كل خبراتي وأسراري في هذا الدليل الشامل.
                     </p>
                     <div class="author-credentials">
                         <span class="credential-badge">مستشار ضرائب دولية معتمد</span>
@@ -1739,7 +1494,7 @@
         <div class="container">
             <h2>ابدأ رحلتك العالمية اليوم</h2>
             <p>لا تدع الفرصة تفوتك للاستفادة من خبرة 10+ سنوات في تأسيس الشركات البريطانية. تذكر، العرض محدود ويشمل هدايا حصرية!</p>
-            <a href="#pricing" class="btn btn-primary btn-large btn-pulse">نعم! أريد تأسيس شركتي البريطانية</a>
+            <a href="#pricing" class="btn btn-primary btn-large btn-pulse btn-center">نعم! أريد تأسيس شركتي البريطانية</a>
         </div>
     </section>
     
@@ -1761,13 +1516,12 @@
                         <li><a href="#features">المميزات</a></li>
                         <li><a href="#testimonials">آراء العملاء</a></li>
                         <li><a href="#pricing">السعر</a></li>
-                        <li><a href="#faq">الأسئلة الشائعة</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
                     <h4>تواصل معنا</h4>
                     <ul class="footer-links">
-                        <li><a href="#">info@ukguide.com</a></li>
+                        <li><a href="#">البريد الإلكتروني</a></li>
                         <li><a href="#">واتساب: +966 50 123 4567</a></li>
                         <li><a href="#">الدعم الفني</a></li>
                     </ul>
@@ -1787,29 +1541,39 @@
         </div>
     </footer>
     
-    <!-- Exit Intent Popup -->
-    <div class="exit-popup" id="exit-popup">
-        <div class="exit-popup-content">
-            <span class="exit-popup-close">&times;</span>
-            <h3>انتظر! لا تفوت هذا العرض</h3>
-            <p>خصم إضافي 10% لو اشتريت الآن! استخدم الكود: <strong>SAVE10</strong></p>
-            <a href="#pricing" class="btn btn-primary">الحصول على الخصم الآن</a>
-        </div>
-    </div>
-    
-    <!-- Lead Capture Popup -->
-    <div class="lead-capture-popup" id="lead-capture">
-        <span class="lead-capture-close">&times;</span>
-        <h3>احصل على نصائح مجانية لتأسيس شركتك البريطانية</h3>
-        <p>سجل بريدك الإلكتروني واحصل على دليل مختصر مجاني + 5 نصائح لتوفير الوقت والمال</p>
-        <form class="lead-form">
-            <input type="text" placeholder="الاسم الكامل">
-            <input type="email" placeholder="البريد الإلكتروني">
-            <button type="submit" class="btn btn-primary">أرسل لي الدليل المجاني</button>
-        </form>
-    </div>
+    <!-- Back to top button -->
+    <a href="#home" class="back-to-top" aria-label="العودة للأعلى">↑</a>
     
     <script>
+        // Mobile Menu Toggle
+        function setupMobileMenu() {
+            const mobileNavToggle = document.querySelector('.mobile-nav-toggle');
+            const navLinks = document.querySelector('.nav-links');
+            const navOverlay = document.querySelector('.nav-overlay');
+            const menuLinks = document.querySelectorAll('.nav-links a');
+            
+            function toggleMenu() {
+                mobileNavToggle.classList.toggle('open');
+                navLinks.classList.toggle('open');
+                navOverlay.classList.toggle('open');
+                document.body.classList.toggle('menu-open');
+                
+                const isExpanded = mobileNavToggle.getAttribute('aria-expanded') === 'true';
+                mobileNavToggle.setAttribute('aria-expanded', !isExpanded);
+            }
+            
+            mobileNavToggle.addEventListener('click', toggleMenu);
+            navOverlay.addEventListener('click', toggleMenu);
+            
+            menuLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    if (navLinks.classList.contains('open')) {
+                        toggleMenu();
+                    }
+                });
+            });
+        }
+        
         // Improved Countdown Timer
         function startCountdown() {
             const countdownDate = new Date();
@@ -1846,11 +1610,132 @@
         // Fixed Header Scroll Effect
         function handleScroll() {
             const header = document.getElementById('header');
-            if (window.scrollY > 50) {
+            const backToTopBtn = document.querySelector('.back-to-top');
+            const scrollPosition = window.scrollY;
+            
+            // Header effect
+            if (scrollPosition > 50) {
                 header.classList.add('scrolled');
             } else {
                 header.classList.remove('scrolled');
             }
+            
+            // Back to top button
+            if (scrollPosition > 500) {
+                backToTopBtn.classList.add('visible');
+            } else {
+                backToTopBtn.classList.remove('visible');
+            }
+            
+            // Fade-in animations on scroll
+            const fadeElements = document.querySelectorAll('.fade-in:not(.visible)');
+            fadeElements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (elementTop < windowHeight - 50) {
+                    element.classList.add('visible');
+                }
+            });
+        }
+        
+        // Testimonial Slider for Mobile
+        function setupTestimonialSlider() {
+            const slider = document.querySelector('.testimonials-slider');
+            const indicators = document.querySelectorAll('.slider-indicator');
+            
+            if (!slider || window.innerWidth >= 992) return;
+            
+            let touchstartX = 0;
+            let touchendX = 0;
+            let currentSlide = 0;
+            
+            function updateIndicators() {
+                indicators.forEach((indicator, index) => {
+                    indicator.classList.toggle('active', index === currentSlide);
+                });
+            }
+            
+            function goToSlide(index) {
+                const slides = document.querySelectorAll('.testimonial');
+                if (!slides.length) return;
+                
+                const slideWidth = slides[0].offsetWidth + parseInt(window.getComputedStyle(slides[0]).marginRight);
+                slider.scrollTo({
+                    left: index * slideWidth,
+                    behavior: 'smooth'
+                });
+                
+                currentSlide = index;
+                updateIndicators();
+            }
+            
+            slider.addEventListener('scroll', () => {
+                const slides = document.querySelectorAll('.testimonial');
+                if (!slides.length) return;
+                
+                const slideWidth = slides[0].offsetWidth + parseInt(window.getComputedStyle(slides[0]).marginRight);
+                const scrollPosition = slider.scrollLeft;
+                const newSlide = Math.round(scrollPosition / slideWidth);
+                
+                if (newSlide !== currentSlide) {
+                    currentSlide = newSlide;
+                    updateIndicators();
+                }
+            });
+            
+            indicators.forEach((indicator, index) => {
+                indicator.addEventListener('click', () => {
+                    goToSlide(index);
+                });
+            });
+            
+            // Touch events for swiping
+            slider.addEventListener('touchstart', e => {
+                touchstartX = e.changedTouches[0].screenX;
+            });
+            
+            slider.addEventListener('touchend', e => {
+                touchendX = e.changedTouches[0].screenX;
+                handleSwipe();
+            });
+            
+            function handleSwipe() {
+                const slides = document.querySelectorAll('.testimonial');
+                if (!slides.length) return;
+                
+                if (touchendX < touchstartX - 50 && currentSlide < slides.length - 1) {
+                    // Swipe left
+                    goToSlide(currentSlide + 1);
+                } else if (touchendX > touchstartX + 50 && currentSlide > 0) {
+                    // Swipe right
+                    goToSlide(currentSlide - 1);
+                }
+            }
+            
+            // Auto-scroll
+            let autoScrollInterval;
+            
+            function startAutoScroll() {
+                autoScrollInterval = setInterval(() => {
+                    const slides = document.querySelectorAll('.testimonial');
+                    if (!slides.length) return;
+                    
+                    const nextSlide = (currentSlide + 1) % slides.length;
+                    goToSlide(nextSlide);
+                }, 5000);
+            }
+            
+            function stopAutoScroll() {
+                clearInterval(autoScrollInterval);
+            }
+            
+            slider.addEventListener('touchstart', stopAutoScroll);
+            slider.addEventListener('touchend', () => {
+                setTimeout(startAutoScroll, 5000);
+            });
+            
+            startAutoScroll();
         }
         
         // FAQ Toggle
@@ -1859,46 +1744,72 @@
             faqQuestions.forEach(question => {
                 question.addEventListener('click', () => {
                     const answer = question.nextElementSibling;
-                    question.classList.toggle('active');
-                    answer.classList.toggle('show');
+                    const isActive = question.classList.contains('active');
+                    
+                    // Close all FAQs
+                    document.querySelectorAll('.faq-question').forEach(q => {
+                        q.classList.remove('active');
+                        q.nextElementSibling.classList.remove('show');
+                    });
+                    
+                    // If the clicked FAQ wasn't active, open it
+                    if (!isActive) {
+                        question.classList.add('active');
+                        answer.classList.add('show');
+                    }
                 });
             });
         }
         
-        // Exit Intent Popup
-        function setupExitPopup() {
-            let showOnce = false;
-            
-            document.addEventListener('mouseleave', (e) => {
-                if (e.clientY < 0 && !showOnce) {
-                    document.getElementById('exit-popup').style.display = 'flex';
-                    showOnce = true;
-                }
-            });
-            
-            document.querySelector('.exit-popup-close').addEventListener('click', () => {
-                document.getElementById('exit-popup').style.display = 'none';
+        // Smooth Scroll
+        function setupSmoothScroll() {
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    
+                    if (targetElement) {
+                        const headerHeight = document.querySelector('header').offsetHeight;
+                        const countdownHeight = document.querySelector('.countdown').offsetHeight;
+                        const offsetTop = targetElement.offsetTop - headerHeight - countdownHeight;
+                        
+                        window.scrollTo({
+                            top: offsetTop,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
             });
         }
         
-        // Lead Capture Popup
-        function setupLeadCapture() {
-            setTimeout(() => {
-                document.getElementById('lead-capture').style.display = 'block';
-            }, 30000); // Show after 30 seconds
-            
-            document.querySelector('.lead-capture-close').addEventListener('click', () => {
-                document.getElementById('lead-capture').style.display = 'none';
-            });
+        // Prevent zoom on double tap (iOS)
+        function preventZoom() {
+            let lastTouchEnd = 0;
+            document.addEventListener('touchend', (e) => {
+                const now = new Date().getTime();
+                if (now - lastTouchEnd <= 300) {
+                    e.preventDefault();
+                }
+                lastTouchEnd = now;
+            }, false);
         }
         
         // Initialize All Scripts
         window.addEventListener('DOMContentLoaded', () => {
+            setupMobileMenu();
             startCountdown();
             setupFAQ();
-            setupExitPopup();
-            setupLeadCapture();
+            setupTestimonialSlider();
+            setupSmoothScroll();
+            preventZoom();
+            
+            // Handle scroll events
             window.addEventListener('scroll', handleScroll);
+            
+            // Trigger initial scroll handler to set initial states
+            handleScroll();
             
             // Auto-open first FAQ item
             const firstQuestion = document.querySelector('.faq-question');
@@ -1907,6 +1818,18 @@
                 firstQuestion.classList.add('active');
                 firstAnswer.classList.add('show');
             }
+            
+            // Make all fade-in elements visible after a delay on initial load
+            setTimeout(() => {
+                document.querySelectorAll('.fade-in').forEach(element => {
+                    element.classList.add('visible');
+                });
+            }, 500);
+        });
+        
+        // Add resize listener to handle layout changes
+        window.addEventListener('resize', () => {
+            setupTestimonialSlider();
         });
     </script>
 </body>

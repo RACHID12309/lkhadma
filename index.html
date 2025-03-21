@@ -2,7 +2,7 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>دليل تأسيس الشركات البريطانية للمستثمر السعودي</title>
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet">
     <style>
@@ -115,9 +115,9 @@
             white-space: nowrap;
             vertical-align: middle;
             user-select: none;
-            padding: 0.75rem 1.25rem;
+            padding: 0.75rem 1rem;
             font-size: 1rem;
-            line-height: 1.5;
+            line-height: 1.4;
             border-radius: 8px;
             transition: all 0.3s ease;
             position: relative;
@@ -125,9 +125,9 @@
             z-index: 1;
             border: none;
             cursor: pointer;
-            width: 100%;
-            max-width: 350px;
-            min-height: 50px;
+            width: 90%;
+            max-width: 300px;
+            min-height: 45px;
         }
         
         .btn::before {
@@ -197,7 +197,7 @@
         
         /* Mobile-Optimized Header */
         header {
-            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            background: var(--primary-dark);
             color: white;
             padding: 0.75rem 0;
             position: fixed;
@@ -221,9 +221,11 @@
         }
         
         .logo {
-            font-size: 1.1rem;
+            font-size: 1rem;
             font-weight: 700;
             z-index: 1001;
+            text-align: center;
+            width: 80%;
         }
         
         /* Mobile Navigation Styles */
@@ -231,21 +233,22 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            width: 30px;
-            height: 21px;
+            width: 25px;
+            height: 18px;
             background: transparent;
             border: none;
             cursor: pointer;
             padding: 0;
             z-index: 1001;
+            margin-right: 5px;
         }
         
         .mobile-nav-toggle span {
             display: block;
             width: 100%;
-            height: 3px;
+            height: 2px;
             background-color: white;
-            border-radius: 3px;
+            border-radius: 2px;
             transition: all 0.3s ease;
         }
         
@@ -324,7 +327,7 @@
         
         /* Mobile Optimized Countdown */
         .countdown {
-            background: linear-gradient(135deg, var(--accent-dark), var(--accent));
+            background: var(--accent);
             color: var(--primary-dark);
             padding: 0.5rem 0;
             text-align: center;
@@ -347,33 +350,35 @@
         
         .countdown-text {
             display: inline-block;
+            margin-left: 5px;
         }
         
         #countdown-timer {
             display: inline-flex;
-            gap: 0.25rem;
-            font-size: 1.1rem;
+            gap: 0.5rem;
+            font-size: 1.2rem;
             font-weight: 700;
             color: var(--primary-dark);
         }
         
         .countdown-unit {
             background: rgba(255, 255, 255, 0.3);
-            padding: 0.2rem 0.4rem;
+            padding: 0.4rem 0.6rem;
             border-radius: 4px;
             min-width: 2.2ch;
             text-align: center;
+            display: inline-block;
         }
         
         /* Mobile Optimized Hero Section */
         .hero {
-            padding: 8rem 0 4rem;
+            padding: 6rem 0 4rem;
             background: linear-gradient(rgba(19, 43, 67, 0.9), rgba(19, 43, 67, 0.85)), 
                         url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80') center/cover;
             position: relative;
             color: white;
             overflow: hidden;
-            min-height: 80vh;
+            min-height: 60vh;
             display: flex;
             align-items: center;
         }
@@ -390,21 +395,24 @@
         }
         
         .hero-content {
-            max-width: 800px;
+            width: 100%;
             margin: 0 auto;
             text-align: center;
             position: relative;
             z-index: 2;
-            padding: 0 1rem;
+            padding: 0 15px;
         }
         
         .hero h1 {
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             font-weight: 800;
-            line-height: 1.3;
+            line-height: 1.4;
             margin-bottom: 1.2rem;
             letter-spacing: -0.5px;
             text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            width: 100%;
+            overflow-wrap: break-word;
+            word-wrap: break-word;
         }
         
         .hero p {
@@ -417,14 +425,14 @@
         
         /* Enhanced Limited Offer for Mobile */
         .limited-offer {
-            background: linear-gradient(135deg, var(--accent-light), var(--accent));
+            background: var(--accent);
             color: var(--primary-dark);
             padding: 1rem 0;
             text-align: center;
             font-weight: 700;
-            font-size: 1rem;
-            animation: pulse-bg 2s infinite;
+            font-size: 0.9rem;
             position: relative;
+            line-height: 1.5;
         }
         
         @keyframes pulse-bg {
@@ -1245,7 +1253,7 @@
             <div id="countdown-timer">
                 <span class="countdown-unit hours">23</span>:
                 <span class="countdown-unit minutes">59</span>:
-                <span class="countdown-unit seconds">59</span>
+                <span class="countdown-unit seconds">45</span>
             </div>
         </div>
     </div>
